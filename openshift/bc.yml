@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: wstunnel
+spec:
+  strategy:
+    type: Docker
+  source:
+    type: Git
+    git:
+      uri: https://github.com/tpohl/wstunnel-openshift.git
+  output:
+    to:
+      kind: ImageStream
+      name: wstunnel
+  triggers:
+  - type: ConfigChange
